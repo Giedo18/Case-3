@@ -7,10 +7,9 @@
 import streamlit as st
 
 
-# In[ ]:
+# In[1]:
 
 
-get_ipython().system('pip install streamlit-folium')
 def OpenChargeMap():
     import pandas as pd
     import requests
