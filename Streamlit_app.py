@@ -207,15 +207,15 @@ def OpenChargeMap():
 #     lon1 = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Lon'].values
 #     lat1 = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Lat'].values
 
-    lon = ["53.5", "5.4"]
-    lat = ["50.8", "5.3"]
+   # lon = ["53.5", "5.4"]
+    #lat = ["50.8", "5.3"]
     
     #plaatsnaam = 'Amsterdam'
     #long_lat = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Locatie'].values
     
     m = folium.Map(tiles = 'cartodbpositron')
     
-    m.fit_bounds([[lon],[lat]])
+    m.fit_bounds([[53.5, 5.4], [50.8, 5.3]])
     
 
     for index, row in Laadpalen.iterrows():
