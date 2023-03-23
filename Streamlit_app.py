@@ -50,6 +50,9 @@ def OpenChargeMap():
         ## Inleiding van de pagina
         Op deze pagina is informatie te lezen over de informatie die is verkregen uit de dataset die is verkregen
         met behulp van de OpenChargeMap.
+        """)
+        
+    st.write("""
         Eerst is er een data analyse gedaan over de gehele dataset. Aangezien het doel was om een kaart te tonen van een
         gebied naar keuze waarin de laadpunten weergegeven worden, is er een data selectie gemaakt van de data die hiervoor
         nodig is. Er is gekeken naar provinciale data zodat het aantal laadpalen per gebied gekoppeld konden worden aan 
@@ -59,13 +62,13 @@ def OpenChargeMap():
         """)
     
     Laadpalen = pd.read_csv("Laadpalen.csv")
-    Locatiedata = {'Plaats':  ['Nederland','Amsterdam'],
+#     Locatiedata = {'Plaats':  ['Nederland','Amsterdam'],
         
-                    'Lon': [["53.5", "5.4"],
-                            ["52.2", "4.66"]],
+#                     'Lon': [["53.5", "5.4"],
+#                             ["52.2", "4.66"]],
                
-                    'Lat' : [["50.8", "5.3"]
-                             ["52.46", "5.10"]]}
+#                     'Lat' : [["50.8", "5.3"]
+#                              ["52.46", "5.10"]]}
 
 
     st.write(Laadpalen.head(3))
@@ -207,7 +210,7 @@ def OpenChargeMap():
 #     lon1 = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Lon'].values
 #     lat1 = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Lat'].values
 
-   # lon = ["53.5", "5.4"]
+   #lon = ["53.5", "5.4"]
     #lat = ["50.8", "5.3"]
     
     #plaatsnaam = 'Amsterdam'
