@@ -7,6 +7,32 @@
 import streamlit as st
 
 
+# In[ ]:
+
+
+def intro():
+    import streamlit as st
+
+    st.write("""# Case 3 – Van data naar informatie:
+             Een dashboard over elektrisch mobiliteit en laadpalen""")
+
+    st.markdown(
+    """
+    Streamlit is een open-source app framework wat specifiek is gemaakt voor
+    Machine Learning en Data Science projecten.
+    In dit project is een dashboard gemaakt over elektrisch mobiliteit en laadpalen.
+    Deze is gemaakt aan de hand van meerdere datasets:
+    * Een dataset die verkregen is via OpenChargeMap
+    * Laadpaaldata.csv (gekregen van docenten van de HvA)
+    * 2 Datasets van de RDW
+        1. Open-Data-RDW-Gekentekende_voertuigen
+        2. Open-Data-RDW-Gekentekende_voertuigen_brandstof
+    
+    Om vervolgens meer informatie over het project te lezen
+    
+    *👈 Selecteer dan een keuze uit de balk hiernaast*.""")
+
+
 # In[1]:
 
 
@@ -179,4 +205,15 @@ def OpenChargeMap():
                                          '> 200', '0-200'])
 
     st_data = st_folium(m, width = 725)
+
+
+# In[ ]:
+
+
+page_names_to_funcs = {
+    "Opdrachtomschrijving": intro,
+    "Laadpaaldata OpenChargeMap": OpenChargeMap}
+
+demo_name = st.sidebar.selectbox("Kies een pagina", page_names_to_funcs.keys())
+page_names_to_funcs[demo_name]()
 
