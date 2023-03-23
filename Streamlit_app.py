@@ -75,7 +75,7 @@ def OpenChargeMap():
   
 
     st.write("""
-        ##Kaart met laadpalen
+        ## Kaart met laadpalen
         Hier zijn alle laadpalen te zien in Nederland. De kleur geeft aan waar in Nederland veel of weinig laadpalen zijn.
         Wanneer de stipjes per laadpaal groen zijn, betekend dat er in diezelfde postcode soort veel laadpalen zijn. Hoe
         roder het stipje wordt, hoe minder laadpalen er in de postcode groep zullen zijn.
