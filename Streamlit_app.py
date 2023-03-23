@@ -233,8 +233,7 @@ def OpenChargeMap():
     #plaatsnaam = 'Amsterdam'
     #long_lat = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Locatie'].values
     
-    m = folium.Map(tiles = 'cartodbpositron',
-                  location = ([lon1,lat1]))
+    m = folium.Map(tiles = 'cartodbpositron')
     
     m.fit_bounds([[lon],[lat]])
     
