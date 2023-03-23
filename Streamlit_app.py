@@ -50,10 +50,8 @@ def OpenChargeMap():
         Op deze pagina is informatie te lezen over de informatie die is verkregen uit de dataset die is verkregen
         met behulp van de OpenChargeMap.""")
     
-    laadpalen = pd.read_csv("Laadpalen.csv")
-    laadpalen.head()
-    
-    locatiedata = pd.read_csv("Locatiedata.csv")
+    Laadpalen = pd.read_csv("Laadpalen.csv")
+    Locatiedata = pd.read_csv("Locatiedata.csv")
 
     st.write(Laadpalen.head(3))
   
@@ -181,7 +179,7 @@ def OpenChargeMap():
     ################################################################################################################
     
     plaatsnaam = 'Amsterdam'
-    long_lat = locatiedata[locatiedata['Plaats'] == plaatsnaam]['Locatie'].values
+    long_lat = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Locatie'].values
     
     m = folium.Map(location = long_lat,
               tiles = 'cartodbpositron')
