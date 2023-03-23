@@ -33,7 +33,7 @@ def intro():
     *👈 Selecteer dan een keuze uit de balk hiernaast*.""")
 
 
-# In[1]:
+# In[2]:
 
 
 def OpenChargeMap():
@@ -222,17 +222,21 @@ def OpenChargeMap():
             return "darkred"
     
     ################################################################################################################
-    plaatsnaam = 'Amsterdam'
+#     plaatsnaam = 'Amsterdam'
     
-    lon = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Lon'].values
-    lat = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Lat'].values
+#     lon1 = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Lon'].values
+#     lat1 = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Lat'].values
 
+    lon = ["53.5", "5.4"]
+    lat = ["50.8", "5.3"]
     
     #plaatsnaam = 'Amsterdam'
     #long_lat = Locatiedata[Locatiedata['Plaats'] == plaatsnaam]['Locatie'].values
     
     m = folium.Map(tiles = 'cartodbpositron',
-                  location = ([lon,lat]))
+                  location = ([lon1,lat1]))
+    
+    m.fit_bounds([[lon],[lat]])
     
 
     for index, row in Laadpalen.iterrows():
@@ -245,7 +249,7 @@ def OpenChargeMap():
         marker.add_to(m)
     
 
-    m = add_categorical_legend(m,
+        m = add_categorical_legend(m,
                                'Aantal laadpalen per postcode groep',
                                colors = ['green', 'lime', 'greenyellow', 'yellow', 'darkorange',
                                          'red', 'darkred'],
