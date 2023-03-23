@@ -47,59 +47,39 @@ def OpenChargeMap():
     # Informatie over wat er te lezen is op deze pagina
     st.write("""
         # Laadpaaldata OpenChargeMap
+        ## Inleiding van de pagina
         Op deze pagina is informatie te lezen over de informatie die is verkregen uit de dataset die is verkregen
-        met behulp van de OpenChargeMap.""")
+        met behulp van de OpenChargeMap.
+        Eerst is er een data analyse gedaan over de gehele dataset. Aangezien het doel was om een kaart te tonen van een
+        gebied naar keuze waarin de laadpunten weergegeven worden, is er een data selectie gemaakt van de data die hiervoor
+        nodig is. Er is gekeken naar provinciale data zodat het aantal laadpalen per gebied gekoppeld konden worden aan 
+        de provincie, helaas ontbrak hier teveel data voor. Daaorm is gekozen om op basis van postcode, postcode groepen
+        te maken. Aan de hand hiervan is te zien hoeveel laadpalen er per postcode groep is. Hieronder is een head te zien
+        van de gemaakte dataset. Hierin is ook al cleaning gedaan.
+        """)
     
     Laadpalen = pd.read_csv("Laadpalen.csv")
-    Locatiedata = {'Plaats': ['Nederland',
-                   'Amsterdam',
-                   'Maastricht',
-                   'Haarlem',
-                   'Arnhem',
-                   'Utrecht',
-                   'Leeuwarden',
-                   'Groningen',
-                   'Den Haag',
-                   'Middelburg',
-                   'Zwolle',
-                   'Den Bosch',
-                   'Assen',
-                   'Lelystad'],
+    Locatiedata = {'Plaats':  ['Nederland','Amsterdam'],
         
-            'Lon': ['52.15130368472897',
-                    '52.371258078794135',
-                    '50.85300767449641',
-                    '52.386845554591645',
-                    '51.98338138653844',
-                    '52.09037942657452',
-                    '53.201233006887016',
-                    '53.218657498787515',
-                    '52.07175202820417',
-                    '51.49981853843821',
-                    '52.51607891882432',
-                    '51.6992652579386',
-                    '52.99242186078035',
-                    '52.51709903811563'],
+                    'Lon': [["53.5", "5.4"],
+                            ["52.2", "4.66"]],
                
-            'Lat' : ['5.849065006968685',
-                    '4.912201662823863',
-                    '5.687171406171752',
-                    '4.639415458023007',
-                    '5.898966059104855',
-                    '5.125935086923146',
-                    '5.79944975573854',
-                    '6.571457904196551',
-                    '4.299396831574714',
-                    '3.615749790361903',
-                    '6.0891464381897045',
-                    '5.296904176783719',
-                    '6.564924557157714',
-                    '5.462285327853063'
-                    ]}
+                    'Lat' : [["50.8", "5.3"]
+                             ["52.46", "5.10"]]}
 
 
     st.write(Laadpalen.head(3))
   
+
+    st.write("""
+        ##Kaart met laadpalen
+        Hier zijn alle laadpalen te zien in Nederland. De kleur geeft aan waar in Nederland veel of weinig laadpalen zijn.
+        Wanneer de stipjes per laadpaal groen zijn, betekend dat er in diezelfde postcode soort veel laadpalen zijn. Hoe
+        roder het stipje wordt, hoe minder laadpalen er in de postcode groep zullen zijn.
+        
+        De kaart is ingeladen d.m.v. folium
+        """)
+    
     ####################################################################################################################
 
     def add_categorical_legend(folium_map, title, colors, labels):
@@ -256,6 +236,14 @@ def OpenChargeMap():
                                          '> 200', '0-200'])
 
     st_data = st_folium(m, width = 725)
+    
+    st.write("""
+        ##Conclusie
+        Er is duidelijk te zien op de kaart dat hoe dichter je bij de randstad komt hoe meer laadpalen er zullen zijn in
+        het gebied. Een logische uitkomst aangezien de randstad dichterbevolkt is, en de aannamen gemaakt kan worden dat
+        hierdoor dus meer elektrische auto's zullen rijden in deze gebieden. Die natuurlijk allemaal opgeladen dienen te
+        worden
+        """)
 
 
 # In[ ]:
